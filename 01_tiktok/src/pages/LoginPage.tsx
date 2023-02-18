@@ -4,7 +4,6 @@ import { BeakerIcon, PresentationChartBarIcon, RocketLaunchIcon } from '@heroico
 import { login } from '@/services';
 import { Navigate, useNavigate } from 'react-router-dom';
 
-import ImgSosmed from '@/assets/img/sosmed.png';
 
 const LoginPage = () => {
 	const [formData, setFormData] = useState({
@@ -101,12 +100,6 @@ const LoginPage = () => {
 				<div> Not registered yet?   <a href="#">Create an Account</a> </div>
 			</LoginArea>
 		</LoginContainer>
-		<InfoContainer className='hidden md:flex flex-col justify-center items-center gap-16 pt-16'>
-				<img className="max-w-xl" src={ImgSosmed}></img>
-				<h2>Turn Opportunities into Yours</h2>
-				<img src="" style={{float:"left"}}></img>
-				<img src="" style={{float:"right"}}></img>
-		</InfoContainer>
     </div>
   )
 }

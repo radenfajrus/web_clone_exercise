@@ -1,0 +1,35 @@
+
+
+env:
+  name: 01_tiktok
+
+name: ${{ env.name }}
+
+on:
+  push:
+    branches: [ deploy ]
+    paths:
+      - ${{ env.name }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy Using ssh
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ env.SSH_HOST }}
+          username: ${{ env.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            [ -d web_clone_exercise ] || git clone git@github.com:radenfajrus/web_clone_exercise.git
+            cd web_clone_exercise
+            git stash
+            git checkout deploy
+            git pull
+            cd ${{ env.name }}
+            npm install -g vite
+            npm install
+            vite build
+

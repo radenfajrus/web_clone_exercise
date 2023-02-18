@@ -1,15 +1,19 @@
 # web_clone_exercise
 Cloning web page to kill time  
   
+- Tiktok Clone -> tiktok.tools2online.com
+
 # Intro
 All clone in this repo is created with :
 1. React
 2. styled_components
-3. sadd
+3. sass
 4. heroicons
 5. zustand
 6. Vite
 7. TailwindCSS
+8. axios
+9. react-query
 
 VSCode extension:
 1. ES7+React
