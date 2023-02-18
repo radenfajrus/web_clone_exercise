@@ -14,7 +14,7 @@ All clone in this repo is created with :
 7. TailwindCSS
 8. axios
 9. react-query
-
+  
 VSCode extension:
 1. ES7+React
 2. TailwindCSS Intellisense
