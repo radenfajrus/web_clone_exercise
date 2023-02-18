@@ -1,7 +1,7 @@
 # tiktok.com
 
 # List that need to consider :
-1. Color pallete
+1. Color palletes
 2. Button
 3. Typography 
 4. Assets
