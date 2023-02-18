@@ -1,14 +1,13 @@
 
 
+name: 01_tiktok
 env:
   name: 01_tiktok
-
-name: 01_tiktok
 
 on:
   push:
     branches: [ deploy ]
-    paths: ['01_tiktok/**']
+    paths: ['01_tiktok/**','.github/workflows/01_tiktok.yml']
 
 jobs:
   deploy:
@@ -17,18 +16,18 @@ jobs:
       - name: Deploy Using ssh
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ env.SSH_HOST }}
-          username: ${{ env.SSH_USER }}
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
+            ssh-keygen -F github.com || ssh-keyscan github.com >>~/.ssh/known_hosts
             [ -d web_clone_exercise ] || git clone git@github.com:radenfajrus/web_clone_exercise.git
             cd web_clone_exercise
             git stash
             git checkout deploy
             git pull
             cd ${{ env.name }}
-            npm install -g vite
             npm install
-            vite build
+            node ./node_modules/vite/bin/vite.js build
 
