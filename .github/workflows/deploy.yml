@@ -3,13 +3,12 @@
 env:
   name: 01_tiktok
 
-name: ${{ env.name }}
+name: 01_tiktok
 
 on:
   push:
     branches: [ deploy ]
-    paths:
-      - ${{ env.name }}
+    paths: ['01_tiktok/**']
 
 jobs:
   deploy:
