@@ -8,7 +8,7 @@ name: 01_tiktok
 on:
   push:
     branches: [ deploy ]
-    paths: ['01_tiktok/**','.github/workflows/01_tiktok.yml]
+    paths: ['01_tiktok/**','.github/workflows/01_tiktok.yml']
 
 jobs:
   deploy:
