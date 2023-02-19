@@ -34,6 +34,7 @@ const Container = styled.div`
   position: relative;    
   display: flex;
   justify-content: end;
+  font-weight: 800px;
 `
 
 const Divider = styled.div`
@@ -48,18 +49,19 @@ const GetTikTok = styled.div`
   ${Flex.flex_c_spacebetween()}
   ${Border.thin_gray}
   position: relative;
+  padding: 8px 0px;
   padding-right: 42px;
   padding-left: 12px;
 
   svg{
     width:24px;
+    flex-shrink: 0;
   }
   label{
     padding: 0px 10px;
     white-space: nowrap;
   }
 
-  height: 108px;
   width: 274px;
 
   transition: all 0.3s cubic-bezier(0.4, 0.14, 0.3, 1) 0s;
@@ -71,12 +73,12 @@ const GetTikTok = styled.div`
     padding: 0;
     margin: 0;
     transform: scale(0,0);
-    transform-origin:center right;
+    transform-origin:bottom right;
   }
 `
 const InfoLink = styled.div`
   ${Flex.flex_r()}
-  padding:8px 8px;
+  padding:6px 8px;
   border-radius: 8px;
   :hover{
     cursor: pointer;
@@ -106,6 +108,7 @@ const CloseButton = styled.div`
 const GetApp = styled.div`
   ${Flex.flex_c_center}
   ${Button.button_gray}
+  align-self: flex-end;
   padding: 6px 16px;
   border-radius: 20px;
   font-size: 0.9em;
@@ -117,18 +120,18 @@ const GetApp = styled.div`
     background-color:var(--color_btn_gray_active);
   }
   
-  height: auto;
   width: auto; 
 
   transition: all 0.3s cubic-bezier(0.4, 0.14, 0.3, 1) 0s;
-
+  transform: scale(1);
+  
   &.inactive{
     width:0;
     height:0;
     font-size:0;
     padding: 0;
     margin: 0;
-    transform: scale(0,0);
+    transform: scale(0);
     transform-origin:bottom right;
   }
 `

@@ -20,3 +20,31 @@ export const useSidebarStore = create(
         }),
     })
 );
+interface UserStore {
+    isLoginModal: boolean;
+    isUserLogin: boolean;
+    setUserLogin: () => void;
+    toggleLoginModal: () => void;
+    checkLogin: (el: any) => void;
+}
+export const useUserStore = create<UserStore>((set, get) => ({
+    isUserLogin: false,
+    setUserLogin: () => set((state:any) => {
+        return {
+            isUserLogin: !state.isUserLogin,
+        };
+    }),
+    isLoginModal: false,
+    toggleLoginModal: () => set((state:any) => {
+        return {
+            isLoginModal: !state.isLoginModal,
+        };
+    }),
+    checkLogin: (el:any) => {
+        if(!get().isUserLogin) {
+            get().toggleLoginModal()
+        }else{
+            el()
+        }
+    }
+}));

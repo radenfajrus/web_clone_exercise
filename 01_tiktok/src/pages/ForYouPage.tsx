@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react'
 import FixedContainer from '@/components/FixedContainer'
 import Post from '@/components/Post'
 import LoadinPost from '@/components/LoadingPost'
+import ModalLogin from '@/components/ModalLogin'
 
 
 let posts_init: any[]  = [

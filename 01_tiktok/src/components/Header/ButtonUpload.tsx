@@ -4,10 +4,13 @@ import styled from 'styled-components'
 import {PlusIcon} from "@heroicons/react/24/solid"
 import Flex from '@/elements/Flex'
 import Button from '@/elements/Button'
+import { useUserStore } from '@/stores'
 
 const ButtonUpload = (props:any) => {
+  let checkLogin = useUserStore((state:any)=>state.checkLogin);
+
   return (
-    <Container style={props.style}>
+    <Container style={props.style} onClick={()=>checkLogin(()=>console.log("user logged in"))}>
         <PlusIcon/>
         <label>Upload</label>
     </Container>

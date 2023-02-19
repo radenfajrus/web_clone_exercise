@@ -1,6 +1,7 @@
 import Button from '@/elements/Button'
 import { useDebounce } from '@/elements/Debounce'
 import Flex from '@/elements/Flex'
+import { useUserStore } from '@/stores'
 import { faker } from '@faker-js/faker'
 import { HashtagIcon, MapPinIcon, MusicalNoteIcon } from '@heroicons/react/24/outline'
 import { ChatBubbleOvalLeftEllipsisIcon, HeartIcon, ShareIcon } from '@heroicons/react/24/solid'
@@ -68,6 +69,7 @@ icons.set("music", <MusicalNoteIcon/>);
 
 const Post = ({data}:any) => {
   data = (data)?data:data_default
+  let checkLogin = useUserStore((state:any)=>state.checkLogin);
 
   const [isHoverProfile, setHoverProfile] = useState(false)
   const debounceddHover = useDebounce(isHoverProfile,600)
@@ -131,13 +133,13 @@ const Post = ({data}:any) => {
             </VideoContainer>
             <ActionContainer>
               <ActionButtonContainer>
-                <ActionButton onClick={()=>setLiked(!isLiked)} className={isLiked?"active":""}>
+                <ActionButton onClick={()=>checkLogin(()=>setLiked(!isLiked))} className={isLiked?"active":""}>
                 <HeartIcon/>
                 </ActionButton>
                 <label>{data.like_count + (isLiked?1:0)}</label>
               </ActionButtonContainer>
               <ActionButtonContainer>
-                <ActionButton className='reverse'>
+                <ActionButton className='reverse'  onClick={()=>checkLogin(()=>console.log("user logged in"))}>
                   <ChatBubbleOvalLeftEllipsisIcon/>
                 </ActionButton>
                 <label>{data.comment_count}</label>
@@ -161,7 +163,7 @@ const Post = ({data}:any) => {
         </AccountCardHoverWrapper>
       )}
       <FollowButtonContainer>
-        {(isFollowed)?(<FollowedButton onClick={unfollow}>Followed</FollowedButton>):(<FollowButton onClick={follow}>Follow</FollowButton>)}
+        {(isFollowed)?(<FollowedButton onClick={()=>checkLogin(unfollow)}>Followed</FollowedButton>):(<FollowButton onClick={()=>checkLogin(follow)}>Follow</FollowButton>)}
       </FollowButtonContainer>
     </Container>
   )

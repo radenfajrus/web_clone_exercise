@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Outlet } from 'react-router-dom';
 import styled from "styled-components";
 import Scrollbar from "@/elements/Scrollbar";
+import ModalLogin from "@/components/ModalLogin";
+import { useModalStore } from "@/stores";
 
 const HomeLayout = ({ children }: any ) => {
   let [isToolsOpen, toggleToolsOpen] = useState(false)
@@ -27,6 +29,7 @@ const HomeLayout = ({ children }: any ) => {
           {children}
         </ContentContainer>
       </MainContainer>
+      <ModalLogin></ModalLogin>
     </Container>
   );
 }
@@ -65,6 +68,7 @@ const SidebarContainerFixed = styled.div`
   position: fixed;
   display: flex;
   width: 356px;
+  height: calc(100% - 60px);
   overflow-y: hidden;
   :hover{
     overflow-y: visible;
@@ -100,6 +104,7 @@ const ContentContainer = styled.div`
   padding: 28px 0px;
   margin: 0px 16px;
 `
+
 
 HomeLayout.displayName = "/src/layouts/HomeLayout.tsx";
 

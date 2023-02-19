@@ -1,9 +1,6 @@
+import { useUserStore } from "@/stores";
 
 
-let login = (email:string,password:string) => {
+export const login = (email:string,password:string) => {
     return true
 } 
-
-export {
-    login
-}
