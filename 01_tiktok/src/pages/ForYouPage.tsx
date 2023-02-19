@@ -14,14 +14,12 @@ let posts_init: any[]  = [
 ]
 const ForYouPage = () => {
   let [posts, setsPosts] = useState(posts_init)
-
+  document.title = "Watch trending videos for you | TikTok";
   return (
     <Container>
       {posts.map((d)=>{
         return <Post data={d} />
       })}
-      <Post/>
-      <Post/>
       <Post/>
       <Post/>
       <Post/>
