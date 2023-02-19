@@ -4,7 +4,7 @@ import { useQuery, useQueryClient } from 'react-query';
 
 import styled from 'styled-components'
 import {XCircleIcon, MagnifyingGlassIcon} from '@heroicons/react/24/solid'
-import { faker } from '@faker-js/faker'
+import { randAvatar,randNumber  } from '@ngneat/falso';
 import axios from 'axios';
 import {useDebounce} from '@/elements/Debounce'
 import Label from '@/elements/Label';
@@ -23,8 +23,8 @@ let keywords_init = [
   "messi vs ronaldo",
 ]
 let accounts_init = [
-  {"id":"𝘼𝙡𝙥𝙝𝙖 ⚡️","name":"messifan.30","img":faker.image.avatar()},
-  {"id":"Meissieeee","name":"itsmeissie","img":faker.image.avatar()},
+  {"id":"𝘼𝙡𝙥𝙝𝙖 ⚡️","name":"messifan.30","img":`${randAvatar()}?random=${randNumber()}`},
+  {"id":"Meissieeee","name":"itsmeissie","img":`${randAvatar()}?random=${randNumber()}`},
 ]
 
 const Search = () => {

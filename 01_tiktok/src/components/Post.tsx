@@ -2,7 +2,7 @@ import Button from '@/elements/Button'
 import { useDebounce } from '@/elements/Debounce'
 import Flex from '@/elements/Flex'
 import { useUserStore } from '@/stores'
-import { faker } from '@faker-js/faker'
+import { randAvatar,randNumber  } from '@ngneat/falso';
 import { HashtagIcon, MapPinIcon, MusicalNoteIcon } from '@heroicons/react/24/outline'
 import { ChatBubbleOvalLeftEllipsisIcon, HeartIcon, ShareIcon } from '@heroicons/react/24/solid'
 import React, { useState } from 'react'
@@ -14,7 +14,7 @@ import ShareHover from './Post/ShareHover'
 let data_default = {
   id:"10.onezero",
   username:"🇸🇬粉狮达人｜生活大爆炸",
-  img:faker.image.avatar(),
+  img:`${randAvatar()}?random=${randNumber()}`,
   is_verified:true,
   is_followed: false,
 
@@ -53,7 +53,7 @@ let data_default = {
   account:{
     id:"10.onezero",
     name:"🇸🇬粉狮达人｜生活大爆炸",
-    img:faker.image.avatar(),
+    img:`${randAvatar()}?random=${randNumber()}`,
     is_verified:true,
     is_followed: false,
     followers : `${Math.round((Math.random()*1000))/10}M`,

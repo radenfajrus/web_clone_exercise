@@ -1,6 +1,6 @@
 import Flex from '@/elements/Flex'
 import Label from '@/elements/Label'
-import { faker } from '@faker-js/faker'
+import { randAvatar,randNumber  } from '@ngneat/falso';
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import {CheckBadgeIcon} from "@heroicons/react/24/solid"
@@ -8,43 +8,42 @@ import AccountHover from './AccountHover'
 import {useDebounce, useDebounceOnEnter} from '@/elements/Debounce'
 import { useQuery } from 'react-query'
 
-
 let accounts_init = [
-  {"id":"riaricis","name":"Ria Ricis","img":faker.image.avatar(),"is_verified":true},
-  {"id":"pojoksatu.id","name":"Pojoksatu.id Official","img":faker.image.avatar(),"is_verified":true},
-  {"id":"ditanganu","name":"DitaKerang🌊","img":faker.image.avatar(),"is_verified":false},
-  {"id":"vidhia_r","name":"🐇Vidhi_R🐇","img":faker.image.avatar(),"is_verified":true},
-  {"id":"cahyanirynn","name":"Cahyaniryn","img":faker.image.avatar(),"is_verified":true},
-  {"id":"adi.syahreza","name":"Adi Syahreza","img":faker.image.avatar(),"is_verified":true},
-  {"id":"fujiiian","name":"Fujiiian","img":faker.image.avatar(),"is_verified":false},
-  {"id":"shopee_id","name":"Shopee Indonesia","img":faker.image.avatar(),"is_verified":true},
-  {"id":"siscakohl","name":"Sisca Kohl","img":faker.image.avatar(),"is_verified":true},
-  {"id":"resep_debm","name":"@resep_inspirasi_debm","img":faker.image.avatar(),"is_verified":true},
-  {"id":"regitamasri","name":"Re🧚🏻‍♀️| IG : regitamsr","img":faker.image.avatar(),"is_verified":false},
-  {"id":"sitianggunn_30","name":"Angguncantik","img":faker.image.avatar(),"is_verified":false},
-  {"id":"cheryantoinette","name":"Cheryl Antoinette","img":faker.image.avatar(),"is_verified":true},
-  {"id":"emilmario69","name":"emilmario","img":faker.image.avatar(),"is_verified":true},
-  {"id":"raffi_nagita","name":"RaffiNagita1717","img":faker.image.avatar(),"is_verified":true},
-  {"id":"popobarbiegirl","name":"Popo🦄🌈🌹🦋🌸","img":faker.image.avatar(),"is_verified":false},
-  {"id":"anggun_supriadi91","name":"anggun✨","img":faker.image.avatar(),"is_verified":true},
-  {"id":"radarbandung","name":"Radar Bandung","img":faker.image.avatar(),"is_verified":true},
-  {"id":"iben_ma","name":"Iben M.A.Iben M.A.","img":faker.image.avatar(),"is_verified":true},
-  {"id":"officialradarsukabumi","name":"radarsukabumi.com","img":faker.image.avatar(),"is_verified":true},
-  {"id":"bobacott","name":"bobacot🧋","img":faker.image.avatar(),"is_verified":true},
-  {"id":"officialinews","name":"OfficialiNews","img":faker.image.avatar(),"is_verified":true},
-  {"id":"lalitahutami","name":"Lita🐣","img":faker.image.avatar(),"is_verified":false},
-  {"id":"akashellahi","name":"Akash Elahi","img":faker.image.avatar(),"is_verified":false},
-  {"id":"williesalim","name":"WILLIE SALIM","img":faker.image.avatar(),"is_verified":true},
-  {"id":"attahalilintar","name":"Atta Halilintar","img":faker.image.avatar(),"is_verified":true},
-  {"id":"azkhategar391","name":"Tegar","img":faker.image.avatar(),"is_verified":false},
-  {"id":"radar_bekasi","name":"Radar Bekasi","img":faker.image.avatar(),"is_verified":true},
-  {"id":"saalhaerid","name":"Saal","img":faker.image.avatar(),"is_verified":true},
+  {"id":"riaricis","name":"Ria Ricis","img":`${randAvatar()}?random=${randNumber()}`,"is_verified":true},
+  {"id":"pojoksatu.id","name":"Pojoksatu.id Official","img":`${randAvatar()}?random=${randNumber()}`,"is_verified":true},
+  {"id":"ditanganu","name":"DitaKerang🌊","img":`${randAvatar()}?random=${randNumber()}`,"is_verified":false},
+  {"id":"vidhia_r","name":"🐇Vidhi_R🐇","img":`${randAvatar()}?random=${randNumber()}`,"is_verified":true},
+  {"id":"cahyanirynn","name":"Cahyaniryn","img":`${randAvatar()}?random=${randNumber()}`,"is_verified":true},
+  {"id":"adi.syahreza","name":"Adi Syahreza","img":`${randAvatar()}?random=${randNumber()}`,"is_verified":true},
+  {"id":"fujiiian","name":"Fujiiian","img":`${randAvatar()}?random=${randNumber()}`,"is_verified":false},
+  {"id":"shopee_id","name":"Shopee Indonesia","img":`${randAvatar()}?random=${randNumber()}`,"is_verified":true},
+  {"id":"siscakohl","name":"Sisca Kohl","img":`${randAvatar()}?random=${randNumber()}`,"is_verified":true},
+  {"id":"resep_debm","name":"@resep_inspirasi_debm","img":`${randAvatar()}?random=${randNumber()}`,"is_verified":true},
+  {"id":"regitamasri","name":"Re🧚🏻‍♀️| IG : regitamsr","img":`${randAvatar()}?random=${randNumber()}`,"is_verified":false},
+  {"id":"sitianggunn_30","name":"Angguncantik","img":`${randAvatar()}?random=${randNumber()}`,"is_verified":false},
+  {"id":"cheryantoinette","name":"Cheryl Antoinette","img":`${randAvatar()}?random=${randNumber()}`,"is_verified":true},
+  {"id":"emilmario69","name":"emilmario","img":`${randAvatar()}?random=${randNumber()}`,"is_verified":true},
+  {"id":"raffi_nagita","name":"RaffiNagita1717","img":`${randAvatar()}?random=${randNumber()}`,"is_verified":true},
+  {"id":"popobarbiegirl","name":"Popo🦄🌈🌹🦋🌸","img":`${randAvatar()}?random=${randNumber()}`,"is_verified":false},
+  {"id":"anggun_supriadi91","name":"anggun✨","img":`${randAvatar()}?random=${randNumber()}`,"is_verified":true},
+  {"id":"radarbandung","name":"Radar Bandung","img":`${randAvatar()}?random=${randNumber()}`,"is_verified":true},
+  {"id":"iben_ma","name":"Iben M.A.Iben M.A.","img":`${randAvatar()}?random=${randNumber()}`,"is_verified":true},
+  {"id":"officialradarsukabumi","name":"radarsukabumi.com","img":`${randAvatar()}?random=${randNumber()}`,"is_verified":true},
+  {"id":"bobacott","name":"bobacot🧋","img":`${randAvatar()}?random=${randNumber()}`,"is_verified":true},
+  {"id":"officialinews","name":"OfficialiNews","img":`${randAvatar()}?random=${randNumber()}`,"is_verified":true},
+  {"id":"lalitahutami","name":"Lita🐣","img":`${randAvatar()}?random=${randNumber()}`,"is_verified":false},
+  {"id":"akashellahi","name":"Akash Elahi","img":`${randAvatar()}?random=${randNumber()}`,"is_verified":false},
+  {"id":"williesalim","name":"WILLIE SALIM","img":`${randAvatar()}?random=${randNumber()}`,"is_verified":true},
+  {"id":"attahalilintar","name":"Atta Halilintar","img":`${randAvatar()}?random=${randNumber()}`,"is_verified":true},
+  {"id":"azkhategar391","name":"Tegar","img":`${randAvatar()}?random=${randNumber()}`,"is_verified":false},
+  {"id":"radar_bekasi","name":"Radar Bekasi","img":`${randAvatar()}?random=${randNumber()}`,"is_verified":true},
+  {"id":"saalhaerid","name":"Saal","img":`${randAvatar()}?random=${randNumber()}`,"is_verified":true},
 ]
 
 const user_default = {
   id:"default",
   username:"default",
-  img:faker.image.avatar(),
+  img:`${randAvatar()}?random=${randNumber()}`,
   is_verified:true,
   is_followed: false,
   followers : `${Math.round((Math.random()*1000))/10}M`,
