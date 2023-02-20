@@ -20,8 +20,8 @@ import Scrollbar from '@/elements/Scrollbar'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 
 let share_list = [
-  {icon:<QrCodeIcon/>,name:"Ise QR code"},
-  {icon:<UserIcon/>,name:"SUse phone / email /username"},
+  {icon:<QrCodeIcon/>,name:"Use QR code"},
+  {icon:<UserIcon/>,name:"Use phone / email /username"},
   {icon:<img src={facebook}/>,name:"Continue with Facebook"},
   {icon:<img src={google}/>,name:"Continue with Google"},
   {icon:<img src={line}/>,name:"Continue with LINE"},

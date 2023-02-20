@@ -1,0 +1,54 @@
+@use 'functions' as f;
+
+// why use em/rem in media query? 
+// If browser font-size increase, it will be similar to big phone. so layout should be like phone.
+
+// width must be ref to font-size
+$breakpoints-up: (
+//     "md": 43.75em, // 700px
+//     "lg": 56.25em, // 900px
+//     "xl": 90em,    // 1440px
+    "md": f.em(700),
+    "lg": f.em(900),
+    "xl": f.em(1440),
+);
+$breakpoints-down: (
+//     "sm": 43.7485em,  // 699px
+//     "md": 56.25em,    // 899.98px
+//     "lg": 89.99875em, // 1439.98px
+    "sm": f.em(699.98),
+    "md": f.em(899.98),
+    "lg": f.em(1439.98),
+);
+@mixin breakpoint($size) {
+    @media only screen and (min-width: map-get($breakpoints-up,$size)) {
+        @content
+    }
+}
+
+@mixin breakpoint-down($size) {
+    @media only screen and (max-width: map-get($breakpoints-up,$size)) {
+        @content
+    }
+}
+
+$breakpoints_device: (
+    "mobile": (
+        "min": 0,
+        "max": map-get($breakpoints-down,"sm"),
+    ),
+    "tablet": (
+        "min": map-get($breakpoints-up,"md"),
+        "max": map-get($breakpoints-down,"md"),
+    ),
+    "desktop": (
+        "min": map-get($breakpoints-up,"lg"),
+        "max": 100%,
+    ),
+);
+
+@mixin breakpoint-device($device) {
+    @media only screen and (min-width: map-get(map-get($breakpoints-device,$device),"min")) and (max-width: map-get(map-get($breakpoints-device,$device),"max")) {
+        @content
+    }
+}

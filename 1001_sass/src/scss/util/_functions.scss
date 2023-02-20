@@ -1,0 +1,15 @@
+@use 'sass:math';
+
+// font-size: rem(30);
+@function rem($pixel){
+    @if not math.is-unitless($pixel){
+        @error "Don't define unit (px,em,rem,%) on using rem function";
+    }
+    @return math.div($pixel,16) + rem;
+}
+@function em($pixel){
+    @if not math.is-unitless($pixel){
+        @error "Don't define unit (px,em,rem,%) on using em function";
+    }
+    @return math.div($pixel,16) + rem;
+}

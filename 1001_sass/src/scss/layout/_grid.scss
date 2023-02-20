@@ -1,0 +1,64 @@
+@use '../util' as u;
+
+%widget {
+    padding: u.rem(16);
+}
+.stateprovider{
+    --scale: 1;
+}
+.grid{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto;
+    gap: 40px;
+    // max-width: 1000px;
+    width: min(calc(100% - 40px),1000px); // avoid inner content go pass 100% width;
+    margin-inline: auto;  // auto center div horizontally;
+
+    @include u.breakpoint-down(md){
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+    }
+ 
+    &__main,&__sidebar{
+        padding: 40px;
+    }
+    &__main{
+        background-color: hsl(240, 100%, 50%);
+        @include u.breakpoint-device(tablet){
+            background-color: hsl(120, 100%, 16%);
+        }
+        @include u.breakpoint-device(mobile){
+            background-color: hsl(39, 100%, 35%);
+        }
+        &:hover{
+            --scale: 1.2;
+            background-color: red;
+        }
+    }
+
+    &__sidebar{
+        scale: var(--scale);
+        
+        // background-color: hsl(300, 100%, 30%);
+        text-align: center;
+        @include u.breakpoint-down(lg){
+            text-align: left;
+        }
+    }
+    &__widget{
+        @extend %widget;
+        background-color: hsl(300, 0%, 20%);
+        &--magenta{
+            // @extend .grid__widget;
+            @extend %widget;
+            background-color: hsl(300, 100%, 30%);
+        }
+        &--green{
+            // @extend .grid__widget;
+            @extend %widget;
+            background-color: hsl(120, 100%, 27%);
+        }
+        scale: var(--scale);
+    }
+}
