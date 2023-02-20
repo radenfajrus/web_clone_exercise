@@ -1,0 +1,41 @@
+@forward 'global';
+@forward 'typography';
+@forward 'layout';
+@forward 'component';
+
+@use 'util' as u;
+
+:root{
+    @extend %color;
+    @extend %animation;
+    @extend %font;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 100%;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;    // To break box-sizing on  some component
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: var(--font1);
+    background-color: var(--color1);
+    color: var(--color2);
+    overflow-x: hidden;
+}
+
+img,svg {
+  display: block;
+}
+
+.draft {
+  width: 200px;
+  height: 200px;
+  background-color: red;
+  margin: 10px;
+}

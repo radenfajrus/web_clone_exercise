@@ -1,0 +1,6 @@
+@forward '../global';
+
+.main{
+    @extend %flex_c;
+    width: 100%;
+}

@@ -1,0 +1,48 @@
+@forward '../global';
+@use "../util" as u;
+
+.skill{
+    padding-bottom: u.em(64);
+    width: 100%;
+    position: relative;
+    @extend %flex_c;
+    
+
+    .float__rings{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        translate: 50% -40%;
+        width: u.em(530);
+        height: u.em(129);
+    }
+    &__cards{
+        width: min(calc(100% - 2rem),69.375rem); // avoid inner content go pass 100% width;
+        display: grid;
+        padding: u.em(32) 0px;
+        grid-template-columns: repeat(3, 1fr);
+        @include u.breakpoint-over(xl){
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @include u.breakpoint-below(md){
+            grid-template-columns: repeat(1, 1fr);
+            place-items: center;
+        }
+    }
+    &__card{
+        @extend %flex_c;
+        align-items: flex-start;
+        @include u.breakpoint-below(md){
+            align-items: center;
+        }
+        padding: u.em(32) 0px;
+    }
+    &__title{
+        color: var(--color2);
+        font-size: var(--font-size-title);
+    }
+    &__subtitle{
+        color: var(--color5);
+        font-size: var(--font-size-normal);
+    }
+}

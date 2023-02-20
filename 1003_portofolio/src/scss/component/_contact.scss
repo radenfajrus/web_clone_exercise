@@ -1,0 +1,99 @@
+@forward '../global';
+@use "../util" as u;
+
+.contact{
+    @extend %flex_r_center;
+    background-color: var(--color4);
+    width: 100%;
+    padding-bottom: u.em(100);
+
+    .float__rings{
+        position: absolute;
+        left: 0;
+        width: u.em(530);
+        height: u.em(129);
+        translate: -50% 50%;
+    }
+    &__wrapper{
+        @extend %flex_r;
+        align-items: flex-start;
+        width: min(calc(100% - 2rem),69.375rem); // avoid inner content go pass 100% width;
+        padding: u.em(150) 0;
+        border-bottom: 1px solid var(--color5);
+        gap:u.em(240);
+        text-align:justify;
+
+        @include u.breakpoint-below(xl){
+            flex-direction: column;
+            align-items: center;
+            gap:u.em(48);
+            text-align:center;
+        }
+    }
+    &__content{
+        @extend %flex_c;
+        flex-basis: 100%;
+        align-items: flex-start;
+        gap:u.em(32);
+        width: 100%;
+        @include u.breakpoint-below(xl){
+            align-items: center;
+            width: 55%;
+        }
+        @include u.breakpoint-below(md){
+            align-items: center;
+            width: 100%;
+        }
+    }
+    &__title{
+        color: var(--color2);
+        font-size: var(--font-size-title);
+    }
+    &__subtitle{
+        color: var(--color5);
+        font-size: var(--font-size-normal);
+    }
+    &__form_wrapper{
+        @extend %flex_c;
+        flex-basis: 100%;
+        width: 100%;
+        @include u.breakpoint-below(xl){
+            width: 55%;
+        }
+        @include u.breakpoint-below(md){
+            width: 100%;
+        }
+    }
+    &__form{
+        @extend %flex_c;
+        width: 100%;
+        gap: u.em(36);
+    }
+    &__input{
+        width: 100%;
+        height: u.em(48);
+
+        background-color: transparent;
+        color: var(--color5);
+        caret-color: var(--color3);
+        outline: 0;
+        border-width: 0px 0px 1px;
+        border-color: var(--color2);
+        font-size: var(--font-size-normal);
+        padding: 0px u.em(24);
+        &.message{
+            height: u.em(120);
+            resize: none;
+            padding-top: calc(u.em(12) + 0em);
+            &::placeholder{
+                position: absolute;
+                top:u.em(12);
+            }
+        }
+    }
+    &__submit{
+        align-self: flex-end;
+        color: var(--color2);
+        font-size: var(--font-size-btn);
+    }
+}

@@ -1,0 +1,39 @@
+@forward '../global';
+@use "../util" as u;
+
+.header{
+    @extend %flex_r_between;
+    width: min(calc(100% - 2rem),69.375rem); // avoid inner content go pass 100% width;
+    height:64px;
+    position: absolute;
+    z-index: 100;
+
+    font-size: var(--font-size-card);
+    font-weight: 800;
+    
+    @include u.breakpoint-device(mobile){
+        position: relative;
+        flex-direction: column;
+        padding: 2rem 0;
+        height:auto;
+        gap:1rem;
+        scale:1.5;
+    }
+    &__logo{
+        width: auto;
+        a{
+            color: var(--color2);
+        }
+    }
+    &__actions{
+        @extend %flex_r_center;
+        gap: 20px;
+        padding: 0 24px;
+    }
+    &__action{
+        @extend %flex_r_center;
+        svg{
+            width: 12px;
+        }
+    }
+}

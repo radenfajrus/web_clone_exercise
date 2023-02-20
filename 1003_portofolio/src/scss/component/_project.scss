@@ -1,0 +1,74 @@
+@forward '../global';
+@use "../util" as u;
+
+.project{
+    @extend %flex_c_between;
+    width: min(calc(100% - 2rem),69.375rem); // avoid inner content go pass 100% width;
+    position: relative;
+
+    &__header{
+        @extend %flex_r_between;
+        width: 100%;
+    }
+    &__title{
+        color: var(--color2);
+        font-size: var(--font-size-title);
+    }
+    &__contactme{
+        font-size: var(--font-size-btn);
+        color: var(--color2);
+    }
+    &__cards{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2em;
+        padding-bottom: u.em(64);
+        padding: u.em(32) 0px;
+        @include u.breakpoint-below(md){
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+    &__card{
+        @extend %flex_c;
+        align-items: flex-start;
+        padding: u.em(16) 0px;
+        gap: 1em;
+    }
+    &__image{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    &__name{
+        @extend %flex_r;
+        align-items: flex-start;
+        font-size: var(--font-size-card);
+        font-weight: 600;
+        text-transform: uppercase;
+        @include u.breakpoint-below(md){
+            font-size: calc(var(--font-size-card) * 1.5);
+        }
+    }
+    &__desc{
+        @extend %flex_r;
+        align-items: flex-start;
+        gap: 8px;
+        font-size: var(--font-size-normal);
+        @include u.breakpoint-below(md){
+            font-size: calc(var(--font-size-normal) * 1.5);
+        }
+    }
+    &__links{
+        @extend %flex_r;
+        padding-top:0.5rem;
+        gap:2rem;
+        text-transform: uppercase;
+        font-size: var(--font-size-card);
+        @include u.breakpoint-below(md){
+            font-size: calc(var(--font-size-card) * 1.5);
+        }
+        a{
+            color:var(--color5);
+        }
+    }
+}

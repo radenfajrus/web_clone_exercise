@@ -1,0 +1,56 @@
+@use 'util' as u;
+
+// --fs-18: 1.125rem;
+// --fs-88: 5.5rem;
+// --fs-72: 4.5rem;
+// --fs-40: 2.5rem;
+// --fs-48: 3rem;
+// --fs-36: 2.25rem;
+// --fs-32: 2rem;
+// --fs-24: 1.5rem;
+// --fs-20: 1.25rem;
+
+h1,h2,h3{
+    margin-block-start: 0;
+    line-height: 1;
+}
+
+h1{
+    font-size: clamp(2.5rem, 0.7rem + 7.68vw, 5.5rem);
+}
+h2{
+    font-size: 1.25rem;
+}
+p {
+    margin-block-start: 0;
+    font-size: clamp(1rem, 0.79rem + 0.89vw, 1.125rem);
+    line-height: 1.5;
+    color: var(--color1-hover);
+}
+
+
+a{
+    transition: color var(--transition);
+    text-decoration: none;
+    :focus-visible{
+        outline: 2px dashed var(--color3);
+        outline-offset: 2px;
+    }
+    :hover {
+        color: var(--color3);
+    }
+}
+
+input:focus-visible,textarea:focus-visible {
+    outline: 2px dashed var(--color3);
+    outline-offset: 2px;
+}
+input:invalid,textarea:invalid {
+    outline-color: var(--invalid);
+}
+
+.green_underline{
+    text-decoration: underline ;
+    text-decoration-color: var(--color3);
+    text-underline-offset:1rem;
+}

@@ -1,0 +1,69 @@
+
+
+%color{
+    --color1: hsl(0, 0%, 8%);
+    --color2: hsl(0, 0%, 100%);
+    --color3: hsl(153, 71%, 59%);
+    --color4: hsl(0, 0%, 14%);
+    --color5: hsl(0, 0%, 85%);
+    --color6: hsl(7, 100%, 68%);
+    --color1-hover: var(--color5);
+    --color2-hover: var(--color4);
+    --color3-hover: var(--color6);
+    --invalid: var(--color6);
+}
+%animation{
+    --transition: 250ms ease-in-out;
+}
+%font{
+    --font1:'Space Grotesk', sans-serif;
+    --font-size-headline: clamp(2.5rem, 0.7rem + 7.68vw, 5.5rem);
+    --font-size-title: clamp(2rem, 0.33rem + 7.11vw, 3rem);
+    --font-size-normal:  clamp(1rem, 0.79rem + 0.89vw, 1.125rem);
+    --font-size-card:  1.25rem;
+    --font-size-btn: 1.25rem;
+}   
+// --fs-18: 1.125rem;
+// --fs-88: 5.5rem;
+// --fs-72: 4.5rem;
+// --fs-40: 2.5rem;
+// --fs-48: 3rem;
+// --fs-36: 2.25rem;
+// --fs-32: 2rem;
+// --fs-24: 1.5rem;
+// --fs-20: 1.25rem;
+
+%flex_r{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+%flex_r_between{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+%flex_r_center{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+%flex_c{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+%flex_c_between{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+%flex_c_center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

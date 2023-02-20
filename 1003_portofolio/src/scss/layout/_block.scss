@@ -1,0 +1,8 @@
+@forward "../global";
+@use '../util' as u;
+
+.block{
+    @extend %flex_c;
+    margin-inline: auto;  // auto center div horizontally;
+    position: relative;
+}
